@@ -24,6 +24,11 @@ def home(request: Request):
 # Upload route
 @app.post("/upload", response_class=HTMLResponse)
 async def upload_file(request: Request, file: UploadFile = File(...)):
+    if file.filename is None:
+        return templates.TemplateResponse("index.html", {
+            "request": request,
+            "message": "Error: Invalid file name"
+        })
     file_path = os.path.join(UPLOAD_FOLDER, file.filename)
 
     with open(file_path, "wb") as buffer:
