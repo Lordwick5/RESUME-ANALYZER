@@ -7,6 +7,7 @@ import shutil
 import os
 
 from utils import extract_text_from_pdf, extract_skills, score_resume, generate_suggestions
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -14,6 +15,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 UPLOAD_FOLDER = "uploads"
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
 
 # Home page
 @app.get("/", response_class=HTMLResponse)
