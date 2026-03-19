@@ -1,0 +1,50 @@
+<!doctype html>
+<meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1">
+  <html lang="en">
+    <head>
+      <title>Resume Analyzer</title>
+      <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div class="container">
+      <h1>Upload Your Resume</h1>
+
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="resume">Resume</label>
+        <input type="file" id="resume" name="file" required />
+        <button type="submit">Analyze</button>
+      </form>
+
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+
+      {% if resume_text %}
+    <h3>Extracted Resume Text:</h3>
+    <p>{{ resume_text }}</p>
+{% endif %}
+
+{% if skills %}
+    <h3>Detected Skills:</h3>
+    <ul>
+        {% for skill in skills %}
+            <li>{{ skill }}</li>
+        {% endfor %}</ul>
+{% endif %}
+
+{% if score %}
+    <h3>Resume Score: {{ score }}/100</h3>
+{% endif %}
+
+{% if suggestions %}
+    <h3>Suggestions:</h3>
+    <ul>
+        {% for s in suggestions %}
+            <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+</div>
+    </body>
+  </html>
+</html>
