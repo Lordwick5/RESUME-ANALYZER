@@ -6,7 +6,7 @@ An AI-powered web application that analyzes resumes and provides insights such a
 
 ## 🌐 Live Demo
 
-👉 https://resume-analyzer-production-b824.up.railway.app
+👉 (https://resume-analyzer-rjmz.onrender.com/)
 
 ---
 
