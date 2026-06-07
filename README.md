@@ -83,13 +83,7 @@ http://127.0.0.1:8000
 
 ## 🚀 Deployment
 
-This project is deployed using Railway.
-
-Start command used:
-
-```
-uvicorn main:app --host=0.0.0.0 --port=$PORT
-```
+This project is deployed using Render.
 
 ---
 
